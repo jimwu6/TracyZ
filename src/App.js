@@ -82,7 +82,7 @@ function App() {
   const runPosenet = async () => {
     const model = await handpose.load({
       inputResolution: { width: 640, height: 480 },
-      scale: 0.25,
+      scale: 1,
     });
 
     setInterval(() => {
@@ -130,8 +130,8 @@ function App() {
     canvas.current.width = videoWidth;
     canvas.current.height = videoHeight;
 
-    drawKeypoints(keypoints, 0.25, ctx);
-    //drawSkeleton(pose["keypoints"], 0.25, ctx);
+    drawKeypoints(keypoints, 1, ctx);
+    drawSkeleton(keypoints, 1, ctx);
   };
 
   runPosenet();
