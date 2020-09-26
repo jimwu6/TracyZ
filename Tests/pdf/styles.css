@@ -1,0 +1,9 @@
+#the-canvas {
+  border: 1px solid black;
+  direction: ltr;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
