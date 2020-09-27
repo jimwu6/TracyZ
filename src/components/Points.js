@@ -73,16 +73,16 @@ const Points = ({ setPoints }) => {
     runPosenet();
 
     return (
-        <div>
+        <div id="camera-camera">
             <Webcam
           ref={webcamRef}
           style={{
             position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
+            marginLeft: "none",
+            marginRight: "none",
             left: 0,
             right: 0,
-            textAlign: "center",
+            textAlign: "right",
             width: 640,
             height: 480,
             transform: "scaleX(-1)",
@@ -92,11 +92,11 @@ const Points = ({ setPoints }) => {
           ref={canvasRef}
           style={{
             position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
+            marginLeft: "none",
+            marginRight: "none",
             left: 0,
             right: 0,
-            textAlign: "center",
+            textAlign: "right",
             width: 640,
             height: 480,
             transform: "scaleX(-1)",

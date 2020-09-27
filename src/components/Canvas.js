@@ -105,12 +105,12 @@ const Canvas = props => {
     }, [pageNum, props.points]);
 
     return (
-        <div>
+        <div id="canvas-canvas">
             <div>
                 <button id="prev" onClick={onPrevPage}>Previous</button>
                 <button id="next" onClick={onNextPage}>Next</button>
                 &nbsp; &nbsp;
-                <span>Page: <span id="page_num"></span> / <span id="page_count">{numPages}</span></span>
+                <span>Page: <span id="page_num">1</span> / <span id="page_count">{numPages}</span></span>
             </div>
             <canvas ref={canvasRef} {...props} height={height} width={width}/>
         </div>

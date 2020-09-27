@@ -13,11 +13,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Canvas points={points}></Canvas>
-        <Points points={points} setPoints={setPoints}></Points>
-        <Speech></Speech>
-      </header>
+      <div className="title">tracyZ</div>
+      <div className="canvas-header">Canvas</div>
+      <Canvas points={points}></Canvas>
+      <div className="camera-header">Camera</div>
+      <Points points={points} setPoints={setPoints}></Points>
+      <Speech></Speech>
     </div>
   );
 }
