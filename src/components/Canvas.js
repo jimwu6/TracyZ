@@ -53,7 +53,7 @@ const Canvas = props => {
             numPages = pdfDoc.numPages;
             pdfDoc.getPage(num).then(page => {
                 var viewport = page.getViewport({scale:1});
-                var desiredWidth = 480;
+                var desiredWidth = 640;
                 var scaleNew = desiredWidth / viewport.width;
                 viewport = page.getViewport({scale: scaleNew})
                 setHeight(viewport.height);
@@ -87,13 +87,13 @@ const Canvas = props => {
         ctx.beginPath();
         console.log(props.points.length);
         if (props.points.length >= 1) {
-            ctx.moveTo(props.points[0], props.points[1]);
+            ctx.moveTo(width - props.points[0], props.points[1]);
             console.log(props.points);
         }
         for (var i = 3; i < props.points.length; i += 3) {
-            ctx.lineTo(props.points[i], props.points[i+1])
+            ctx.lineTo(width - props.points[i], props.points[i+1])
         }
-        ctx.fill();
+        ctx.stroke();
     }
 
     useEffect(() => {

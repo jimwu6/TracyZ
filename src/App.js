@@ -16,6 +16,7 @@ function App() {
       <header className="App-header">
         <Canvas points={points}></Canvas>
         <Points points={points} setPoints={setPoints}></Points>
+        <Speech></Speech>
       </header>
     </div>
   );

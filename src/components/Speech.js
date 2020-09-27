@@ -38,7 +38,7 @@ const Speech = () => {
     startListening();
   }
 
-  function startListening() {
+  async function startListening() {
     recognizer.listen(
       ({ scores }) => {
         scores = Array.from(scores).map((s, i) => ({
