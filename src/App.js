@@ -1,14 +1,14 @@
 import React, { useRef, useState } from "react";
 import "./App.css";
 import Points from "./components/Points";
-import Canvas from "./components/Canvas"
+import Canvas from "./components/Canvas";
+import Speech from "./components/Speech";
 
 import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "./utilities";
 // import { model } from "@tensorflow/tfjs";
 
 function App() {
-
   const [points, setPoints] = useState([]);
 
   return (
