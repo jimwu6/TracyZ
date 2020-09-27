@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
-
+import Canvas from 'canvas';
 const PDF = () => {
-    const [pageNum, setPageNum] = useState(0);
+    const [pageNum, setPageNum] = useState(1);
 
     // If absolute URL from the remote server is provided, configure the CORS
     // header on that server.
@@ -19,46 +19,46 @@ const PDF = () => {
     var pageRendering = false;
     var pageNumPending = null;
     var scale = 2.5;
-    var canvas = document.getElementById('the-canvas');
+    //var canvas = document.getElementById('the-canvas');
     //var ctx = canvas.getContext('2d');
 
 
-    const renderPage = num => {
+    const renderPage = (ctx, num) => {
         pageRendering = true;
 
     // use promise
-    pdfDoc.getPage(num).then(page => {
-        var viewport = page.getViewport({scale:1});
-        var desiredWidth = 1000;
-        var scaleNew = desiredWidth / viewport.width;
-        viewport = page.getViewport({scale: scaleNew})
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+        pdfDoc.getPage(num).then(page => {
+            var viewport = page.getViewport({scale:1});
+            var desiredWidth = 1000;
+            var scaleNew = desiredWidth / viewport.width;
+            viewport = page.getViewport({scale: scaleNew})
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
 
-        var renderContext = {
-            //canvasContext: ctx,
-            viewport: viewport
-        };
-        
-        var renderTask = page.render(renderContext);
-        
-        renderTask.promise.then(() => {
-        pageRendering = false;
-        //Array of keypoints
+            var renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            
+            var renderTask = page.render(renderContext);
+            
+            renderTask.promise.then(() => {
+            pageRendering = false;
+            //Array of keypoints
 
-        //Drawing line
-        //ctx.beginPath();
-        //ctx.moveTo(keypoints[5].x, keypoints[5].y);
-        //ctx.fill();
-        
-        if (pageNumPending !== null) {
-            renderPage(pageNumPending);
-            pageNumPending = null;
-        }
+            //Drawing line
+            //ctx.beginPath();
+            //ctx.moveTo(keypoints[5].x, keypoints[5].y);
+            //ctx.fill();
+            
+            if (pageNumPending !== null) {
+                renderPage(pageNumPending);
+                pageNumPending = null;
+            }
         });
     });
 
-    document.getElementById('page_num').textContent =  num;
+    //document.getElementById('page_num').textContent =  num;
     
     }
 
@@ -105,9 +105,10 @@ const PDF = () => {
                 &nbsp; &nbsp;
                 <span>Page: <span id="page_num"></span> / <span id="page_count">{pageNum}</span></span>
             </div>
-            <canvas id="the-canvas"></canvas>
+            <Canvas ></Canvas>
         </div>
     )   
 }
 
+//<canvas id="the-canvas"></canvas>
 export default PDF;

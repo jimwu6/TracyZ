@@ -7,19 +7,19 @@ import { drawKeypoints, drawSkeleton } from "../utilities";
 const handpose = require("@tensorflow-models/handpose");
 require("@tensorflow/tfjs-backend-webgl");
 
-const Points = () => {
+const Points = ({ setPoints }) => {
     const webcamRef = useRef(null);
     const canvasRef = useRef(null);
 
     const runPosenet = async () => {
         const model = await handpose.load({
         inputResolution: { width: 640, height: 480 },
-        scale: 0.25,
+        scale: 1,
         });
 
         setInterval(() => {
         detect(model);
-        }, 100);
+        }, 150);
     };
 
     const detect = async (model) => {
@@ -44,13 +44,14 @@ const Points = () => {
 
         if (predictions.length > 0) {
             for (let i = 0; i < predictions.length; i++) {
-            const keypoints = predictions[i].landmarks;
-            // Log hand keypoints.
-            for (let i = 0; i < keypoints.length; i++) {
-                const [x, y, z] = keypoints[i];
-                //console.log(`Keypoint ${i}: [${x}, ${y}, ${z}]`);
-            }
-            drawCanvas(keypoints, video, videoWidth, videoHeight, canvasRef);
+                const keypoints = predictions[i].landmarks;
+                // Log hand keypoints.
+                for (let i = 0; i < keypoints.length; i++) {
+                    const [x, y, z] = keypoints[i];
+                    //console.log(`Keypoint ${i}: [${x}, ${y}, ${z}]`);
+                }
+                setPoints(p => p.concat(keypoints[8]))
+                drawCanvas(keypoints, video, videoWidth, videoHeight, canvasRef);
             }
         }
         }
@@ -61,7 +62,7 @@ const Points = () => {
         canvas.current.width = videoWidth;
         canvas.current.height = videoHeight;
 
-        drawKeypoints(keypoints, 0.25, ctx);
+        drawKeypoints(keypoints, 1, ctx);
         //drawSkeleton(pose["keypoints"], 0.25, ctx);
     };
     
