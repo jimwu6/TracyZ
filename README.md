@@ -1,4 +1,4 @@
-# TracyZ
+# tracyZ
 
 Project for RamHacks 2020
 
