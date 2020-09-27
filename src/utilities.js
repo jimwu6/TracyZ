@@ -110,8 +110,8 @@ export function drawSkeleton(keypoints, minConfidence, ctx, scale = 1) {
 
   adjacentKeyPoints.forEach((keypoints) => {
     drawSegment(
-      toTuple(keypoints[0].position),
-      toTuple(keypoints[1].position),
+      toTuple(keypoints[0]),
+      toTuple(keypoints[1]),
       color,
       scale,
       ctx
@@ -132,7 +132,13 @@ export function drawKeypoints(keypoints, minConfidence, ctx, scale = 1) {
 
     //console.log(keypoint);
     const [x, y, z] = keypoint;
-    drawPoint(ctx, y * scale, x * scale, 3, color);
+    drawPoint(
+      ctx,
+      y * scale,
+      x * scale,
+      3,
+      (i === 5) | (i === 6) | (i === 7) | (i === 8) ? "red" : color
+    );
   }
 }
 
