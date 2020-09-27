@@ -14,5 +14,7 @@ The main hand tracking functionality is handled through the TensorFlow.js Hand P
 
 [Our Devpost!](https://devpost.com/software/tracyz)
 
+A screenshot from the web app:
+
 ![Screenshot](/src/image.png)
 
