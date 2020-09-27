@@ -1,0 +1,57 @@
+* {
+  font-family: 'Roboto Mono', monospace;
+}
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.title{
+  font-size: 36px;
+  color: darkslategrey;
+  position: fixed;
+  top: 7%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -10%);
+}
+.canvas-header {
+  font-size: 24px;
+  color: darkslategrey;
+  position: fixed;
+  right: 21%;
+  top: 15%;
+
+}
+.camera-header {
+  font-size: 24px;
+  color: darkslategrey;
+  position: fixed;
+  left: 21%;
+  top: 15%;
+}
+
+#canvas-canvas{
+  position: fixed;
+  right: 7%;
+  top: 20%;
+  outline: 1px black;
+}
+
+button {
+  background-color: white;
+  margin-left: 10px;
+
+}
+#camera-camera {
+  position: fixed;
+  left: 7%;
+  top: 20%;
+}
+
+#prev, #next{
+  display: inline-block;
+  text-align: center;
+}
+
