@@ -10,4 +10,9 @@ TracyZ takes in real-time video footage from users' cameras and applies ML with 
 
 The main hand tracking functionality is handled through the TensorFlow.js Hand Pose library. After identifying a user's hand in the view of the webcam, my group highlighted the key coordinates of the pointer finger and drew them with a red contrast colour on the screen. The x and y coordinates from the pointer finger were then used to draw on the HTML canvas of the PDF that the user previously uploaded. The PDF uploading and managing are handled with PDF.js, and the frontend of the web app with HTML, CSS, and React.js. Tensorflow's Speech Command Recognition was also used for users to start and stop the drawing action on the screen using vocal commands (alternatively, if a user clenches their fist, the TracyZ app stops drawing onto the screen).
 
+# Check out:
+
+[Our Devpost!](https://devpost.com/software/tracyz)
+
+![Screenshot](/src/image.png)
 
